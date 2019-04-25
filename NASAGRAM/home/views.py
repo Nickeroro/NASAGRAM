@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 import requests
 import json
-
+from .models import NasaData
 
 def home(request):
     parsedData = []
