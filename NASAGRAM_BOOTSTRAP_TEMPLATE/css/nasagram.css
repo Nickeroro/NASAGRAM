@@ -1,0 +1,146 @@
+body{
+	background-image: url("https://apod.nasa.gov/apod/image/1904/SpaceXFalconHeavy11Apr1024.jpg");
+	background-color: #303030;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+}
+
+
+
+.page {
+	background-color: rgba(0, 0, 0, 0.30)!important;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.navbar{
+	background-color: rgba(0, 0, 0, 0)!important;
+}
+
+.navbar-brand{
+	font-family: 'Vibur', cursive;
+	font-size: 45px;
+}
+
+.introduction{
+	text-align: center;
+    flex: 1!important;
+	background-color: rgba(0, 0, 0, 0)!important;
+	font-size: 25px;
+}
+
+
+.introduction h1{
+	font-size: 65px;
+	letter-spacing: 0.2em;
+	font-family: 'Varela Round', cursive;
+	background: -webkit-linear-gradient(rgba(255,255,255,1),rgba(255,255,255,0.1));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.font-thin {
+	font-family: 'Roboto Thin', sans-serif;
+}
+
+.introduction p{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.gradient {
+	background-image: url(../img/NASA_background.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	/*
+  	background-image: linear-gradient(to right, rgba(47,52,139,1), rgba(217,38,46,1));
+  	*/
+}
+
+.card {
+	padding: 3px;
+
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	margin-bottom: 35px;
+}
+
+
+.footer {
+	background-color: rgba(0, 0, 0, 0)!important;
+}
+
+.close {
+	color: rgba(255, 255, 255, 1)!important;
+}
+
+a{
+	color: rgba(255, 255, 255, 1)!important;
+	text-decoration: none;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: .3s ease;
+  background-color: rgba(0, 0, 0, 0.30)!important;
+}
+
+/* When you mouse over the card-image, fade in the overlay icon*/
+.card-image:hover .overlay {
+  opacity: 1;
+}
+
+.icon {
+  color: white;
+  font-size: 100px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+.mapdiv{
+    width: 100%;
+    margin: auto;
+}
+
+#MAST:hover, #MARDI:hover, #MAHLI:hover, #CHEMCAM:hover, #NAVCAM:hover, #FHAZ:hover, #RHAZ:hover   {
+    cursor: pointer;
+    fill: #0b3d91;
+}
+
+#MAST, #MARDI, #MAHLI, #CHEMCAM, #NAVCAM, #FHAZ, #RHAZ, #BODY-ROBOT{
+    cursor: pointer;
+    fill: #6c757d;
+}
+
+.card-social p{
+	font-size: 25px;
+}
+
+.btn-facebook {
+	background-color: #3C5A99 ;
+}
+
+.btn-messenger {
+	background-color: #0078FF ;
+}
+
+.btn-twitter {
+	background-color: #1DA1F2 ;
+}
