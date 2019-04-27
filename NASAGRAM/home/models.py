@@ -7,3 +7,11 @@ class NasaData(models.Model):
     IMG_SRC = models.CharField(max_length=100)
 
     objects = models.Manager()
+    
+
+class NasaWallpaper(models.Model):
+    TITLE = models.CharField(max_length=50)
+    HDURL = models.CharField(max_length=100)
+    IMG_SRC = models.CharField(max_length=100)
+
+    objects = models.Manager()
