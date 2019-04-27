@@ -2,19 +2,32 @@ from django.shortcuts import render, HttpResponse
 import requests
 import json
 from .models import NasaData
+from .models import NasaWallpaper
 
 def home(request):
     parsedData = []
     if request.method == 'GET':
         req = requests.get('https://api.nasa.gov/planetary/apod?api_key=iuhNgzwxe8bTEazDdALqx8yd5PIZpQ9XGhX5yVkt')
-        jsonList = []
-        jsonList.append(json.loads(req.content.decode('utf-8')))
+        jsonList = [json.loads(req.content.decode('utf-8'))]
         nasaData = {}
         for background in jsonList:
+            IMG_SRC = background['url']
             nasaData['url'] = background['url']
+
+            HDURL = background['hdurl']
             nasaData['hdurl'] = background['hdurl']
+
+            TITLE = background['title']
             nasaData['title'] = background['title']
-        parsedData.append(nasaData)
+            parsedData.append(nasaData.copy())
+
+        if NasaWallpaper.objects.filter().exists():
+            print("Object already exists in DataBase, don't save anything")
+        else:
+            nasa_data = NasaWallpaper(IMG_SRC=IMG_SRC,
+                                      HDURL=HDURL,
+                                      TITLE=TITLE)
+            nasa_data.save()
     return render(request, 'home.html', {'background': parsedData})
 
 
