@@ -3,14 +3,14 @@ API NASA + Instagram = ❤️
 
 Website Template : https://tonycalvez.github.io/NASAGRAM/NASAGRAM_BOOTSTRAP_TEMPLATE/index.html
 
-##Usage
+## Usage
 ***
-#Linux/MacOs
+# Linux/MacOs
 Launch the start.sh file with this command:
 ~~~
 ./start.sh
 ~~~
-#Windows
+# Windows
 Execute those commands in the prompt:
 ~~~
 python manage.py makemigrations home
@@ -20,7 +20,7 @@ python manage.py runserver
 
 You hould see the Django website on 127.0.0.0:8000
 
-##Dependencies
+## Dependencies
 ***
   * Django
   * opencv-pyhton
