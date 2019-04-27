@@ -7,6 +7,7 @@ Website Template : https://tonycalvez.github.io/NASAGRAM/NASAGRAM_BOOTSTRAP_TEMP
 ### Linux/MacOs
 Launch the start.sh file with this command:
 ~~~
+chmod +x start.sh
 ./start.sh
 ~~~
 ### Windows
