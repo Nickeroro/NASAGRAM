@@ -18,7 +18,7 @@ python manage.py migrate
 python manage.py runserver
 ~~~
 
-You should see the Django powered website on 127.0.0.0:8000
+You should see the Django powered website on 127.0.0.1:8000
 
 ## Dependencies
   * Django
