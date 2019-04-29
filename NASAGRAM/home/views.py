@@ -19,9 +19,10 @@ def home(request):
 
             TITLE = background['title']
             nasaData['title'] = background['title']
+            buffer = IMG_SRC
             parsedData.append(nasaData.copy())
 
-        if NasaWallpaper.objects.filter().exists():
+        if NasaWallpaper.objects.filter(IMG_SRC=buffer).exists():
             print("Object already exists in DataBase, don't save anything")
         else:
             nasa_data = NasaWallpaper(IMG_SRC=IMG_SRC,
@@ -72,7 +73,7 @@ def picsviewer(request, earth_date, camera_name):
             IMG_SRC = pics['img_src']
             nasaData['img_src'] = pics['img_src']
             buffer = CAMERA_ID
-            parsedData.append(nasaData)
+            parsedData.append(nasaData.copy())
 
             if NasaData.objects.filter(CAMERA_ID=buffer).exists():
                 print("Object already exists in DataBase, don't save anything")
