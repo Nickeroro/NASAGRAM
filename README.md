@@ -8,7 +8,7 @@ Website Template : https://tonycalvez.github.io/NASAGRAM/NASAGRAM_BOOTSTRAP_TEMP
 Launch the start.sh file with this command:
 ~~~
 chmod +x start.sh
-./start.sh
+./start.sh -h
 ~~~
 ### Windows
 Execute those commands in the prompt:
