@@ -1,7 +1,15 @@
 #!/bin/bash
 
 while getopts "mrh" option; do
-	echo "NASAGRAM"
+	echo " _____________________________________"
+	echo "<          NASAGRAM Project          >"
+	echo "<       CALVEZ Tony - TB Nicolas     >"
+	echo " _____________________________________"
+	echo "        \   ^__^"
+	echo "         \  (oo)\_______"
+	echo "            (__)\       )\/\ "
+	echo "                ||----w |"
+	echo "                ||     ||"
 	case $option in
 		m)
 		python manage.py makemigrations home
@@ -19,7 +27,7 @@ while getopts "mrh" option; do
   		echo "-h command: prompt help"
 		;;
 		?)
-		echo "illegal option :("
+		echo "illegal option :(..."
 		exit 1
 		;;
 	esac
