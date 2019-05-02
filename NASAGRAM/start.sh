@@ -22,8 +22,8 @@ while getopts "mrh" option; do
     		h)
 		echo "Command help - start nasagram "
 		echo "========================="
-		echo "-m command: make migrations and run the server"
-		echo "-r command: only run the server" 
+		echo "-m command: make migrations then run the server"
+		echo "-r command: run the server (typycal usage)" 
   		echo "-h command: prompt help"
 		;;
 		?)
