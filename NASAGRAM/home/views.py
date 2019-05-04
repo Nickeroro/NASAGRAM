@@ -65,13 +65,12 @@ def picsviewer(request, earth_date, camera_name):
                 CAMERA_ID = pics['id']
                 IMG_SRC = pics['img_src']
 
-                buffer = CAMERA_ID
-
-                nasa_data = NasaData(CAMERA_ID=CAMERA_ID,
-                                     CAMERA_NAME=CAMERA_NAME,
-                                     EARTH_DATE=EARTH_DATE,
-                                     IMG_SRC=IMG_SRC)
-                nasa_data.save()
+                if not (NasaData.objects.filter(IMG_SRC=pics['img_src']).exists()):
+                    nasa_data = NasaData(CAMERA_ID=CAMERA_ID,
+                                         CAMERA_NAME=CAMERA_NAME,
+                                         EARTH_DATE=EARTH_DATE,
+                                         IMG_SRC=IMG_SRC)
+                    nasa_data.save()
 
         else:
             data['pics'] = NasaData.objects.latest()
