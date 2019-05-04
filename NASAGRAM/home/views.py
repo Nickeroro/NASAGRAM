@@ -23,7 +23,8 @@ def home(request):
             parsedData.append(nasaData.copy())
 
         if NasaWallpaper.objects.filter(IMG_SRC=buffer).exists():
-            print("Object already exists in DataBase, don't save anything")
+            pass
+            # print("Object already exists in DataBase, don't save anything")
         else:
             nasa_data = NasaWallpaper(IMG_SRC=IMG_SRC,
                                       HDURL=HDURL,
@@ -58,25 +59,18 @@ def picsviewer(request, earth_date, camera_name):
         req = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + earth_date + api_key
         response = requests.get(req)
         todo = json.loads(response.text)
-        nasaData = {}
 
         for pics in todo['photos']:
             EARTH_DATE = pics['earth_date']
-            nasaData['earth_date'] = pics['earth_date']
-
             CAMERA_NAME = pics['camera']['name']
-            nasaData['camera_name'] = pics['camera']['name']
-
             CAMERA_ID = pics['id']
-            nasaData['id'] = pics['id']
-
             IMG_SRC = pics['img_src']
-            nasaData['img_src'] = pics['img_src']
+
             buffer = CAMERA_ID
-            parsedData.append(nasaData.copy())
 
             if NasaData.objects.filter(CAMERA_ID=buffer).exists():
-                print("Object already exists in DataBase, don't save anything")
+                pass
+                # print("Object already exists in DataBase, don't save anything")
             else:
                 nasa_data = NasaData(CAMERA_ID=CAMERA_ID,
                                      CAMERA_NAME=CAMERA_NAME,
@@ -84,5 +78,8 @@ def picsviewer(request, earth_date, camera_name):
                                      IMG_SRC=IMG_SRC)
                 nasa_data.save()
 
+        for x in NasaData.objects.all():
+            parsedData = x.IMG_SRC
+            print(parsedData)
 
-        return render(request, 'home.html', {'pics': parsedData})    
+        return render(request, 'home.html', {'pics': parsedData})
