@@ -127,5 +127,6 @@ def panelfilter(request, id):
 
 
 
+
     data.append(id + '/source.jpg')
     return render(request, 'home.html', {'panelfilters' : data})
