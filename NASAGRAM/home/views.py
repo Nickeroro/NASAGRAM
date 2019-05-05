@@ -7,7 +7,11 @@ import os
 from django.conf import settings
 from .models import NasaData
 from .models import NasaWallpaper
-
+import sys
+sys.path.append(settings.STATIC_HOME + 'picturesfilters/')
+from color_transfer import color_transfer
+import numpy as np
+import cv2
 
 
 def home(request):
@@ -125,8 +129,11 @@ def panelfilter(request, id):
         link = directory + 'source.jpg'
         urllib.request.urlretrieve(URL, link)
 
-
-
+    source_ct_orange = cv2.imread(settings.STATIC_HOME + 'picturesfilters/color_transfer/source_orange.jpg')
+    target_ct = cv2.imread(settings.STATIC_HOME + 'picturesfilters/' + id + '/source.jpg')
+    transfer = color_transfer(source_ct_orange, target_ct)
+    cv2.imwrite(settings.STATIC_HOME + 'picturesfilters/' + id + '/output_ct.jpg', transfer)
 
     data.append(id + '/source.jpg')
+    data.append(id + '/output_ct.jpg')
     return render(request, 'home.html', {'panelfilters' : data})
