@@ -2,15 +2,20 @@ from django.shortcuts import render, HttpResponse
 import requests
 import json
 import datetime
+import urllib.request
+import os
+from django.conf import settings
 from .models import NasaData
 from .models import NasaWallpaper
+
+
 
 def home(request):
     data = dict()
     parsedData = []
     if not (NasaWallpaper.objects.filter(DATE=datetime.date.today()).exists()):
         if request.method == 'GET':
-            req = requests.get('https://api.nasa.gov/planetary/apod?api_key=iuhNgzwxe8bTEazDdALqx8yd5PIZpQ9XGhX5yVkt')
+            req = requests.get("https://api.nasa.gov/planetary/apod" + settings.API_NASA)
             jsonList = [json.loads(req.content.decode('utf-8'))]
 
             for background in jsonList:
@@ -46,8 +51,8 @@ def picsviewer(request, earth_date, camera_name):
 
     if not (NasaData.objects.filter(EARTH_DATE=earth_date).exists()):
         if request.method == 'GET':
-            api_key = "&api_key=pEqx0KfvYk6o3MbDGmFMxgMvb4rFhndc2eXyZoqx"
-            req = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + earth_date + api_key
+
+            req = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + earth_date + settings.API_NASA
             response = requests.get(req)
             todo = json.loads(response.text)
 
@@ -111,7 +116,16 @@ def allpics(request, earth_date):
 
 def panelfilter(request, id):
     data=[]
-    URL= NasaData.objects.values_list('IMG_SRC', flat=True).get(CAMERA_ID=id)
-    data.append(URL)
-    data.append(URL)
+    directory = settings.STATIC_HOME + 'picturesfilters/' + id + '/'
+
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+        URL = NasaData.objects.values_list('IMG_SRC', flat=True).get(CAMERA_ID=id)
+        link = directory + 'source.jpg'
+        urllib.request.urlretrieve(URL, link)
+
+
+
+    data.append(id + '/source.jpg')
     return render(request, 'home.html', {'panelfilters' : data})

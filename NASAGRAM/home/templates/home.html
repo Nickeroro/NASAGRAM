@@ -1,7 +1,7 @@
 {% load staticfiles %}
 
 <!-- Made with ❤️ by Tony CALVEZ and Nicolas TB -->
-<!-- Open Source Template realeased with Bootstrap -->
+<!-- Open Source Template released with Bootstrap -->
 
 <head>
     	<title>Nasagram ❤️</title>
@@ -108,13 +108,13 @@
                                             </ol>
                                             <div class="carousel-inner">
                                               <div class="carousel-item active">
-                                                <img src="{{panelfilters.0}}" class="d-block w-100" alt="...">
+                                                <img src="{% static "home/picturesfilters/source.jpg" %}" class="d-block w-100" alt="...">
                                                 <div class="carousel-caption d-none d-md-block">
                                                 </div>
                                               </div>
                                               {% for pics in panelfilters %}
                                               <div class="carousel-item">
-                                                <img src="{{ pics }}" class="d-block w-100" alt="...">
+                                                <img src="{% static "home/picturesfilters/" %}{{ pics }}" class="d-block w-100" alt="...">
                                                 <div class="carousel-caption d-none d-md-block">
                                                 </div>
                                               </div>
