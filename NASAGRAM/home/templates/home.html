@@ -37,8 +37,8 @@
 <body>
 	<div class="page">
 		<nav class="navbar">
-			<a class="navbar-brand" href="#">
-				<img src="{% static "/home/img/nasagram.svg" %}" href="http://127.0.0.1:8000" width="55" height="55" class="d-inline-block align-top" alt="">
+			<a class="navbar-brand" href="{{request.scheme}}://{{request.get_host}}" >
+				<img src="{% static "/home/img/nasagram.svg" %}" href="{{request.scheme}}://{{request.get_host}}" width="55" height="55" class="d-inline-block align-top" alt="">
 			Nasagram
 			</a>
 			<form class="form-inline">
@@ -209,7 +209,7 @@
 						    </a>
 						</svg>
                         <div class="modal-footer">
-                            <input type="submit" type="button" id="btnSend" class="btn btn-lg gradient text-white btn-block" value="All body pictures? ">
+                            <button type="button" class="btn btn-lg gradient text-white btn-block" onclick="submitDate()"> All body pictures? </button>
                         </div>
 					</div>
     			</div>
@@ -229,12 +229,11 @@
 		});
 	});
 
-	$(document).getElementById('btnSend')
-    .addEventListner('click', function (event){
-			var date = document.getElementById('date-input').value;
-			var link = location.href.split('/')[0] + '/' +date;
-			window.location.replace(link);
-	});
 
+	function submitDate() {
+    var date = document.getElementById('date-input').value;
+	var link = location.href.split('/')[0] + '/' +date;
+	window.location.replace(link);
+    }
 	</script>
 </body>
