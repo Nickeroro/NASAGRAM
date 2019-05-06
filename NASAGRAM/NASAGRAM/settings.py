@@ -27,7 +27,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 #API KEY
-API_NASA = "&api_key=pEqx0KfvYk6o3MbDGmFMxgMvb4rFhndc2eXyZoqx"
+API_NASA = "?api_key=pEqx0KfvYk6o3MbDGmFMxgMvb4rFhndc2eXyZoqx"
 
 # Application definition
 
