@@ -92,7 +92,7 @@ def allpics(request, earth_date):
 
     if not (NasaData.objects.filter(EARTH_DATE=earth_date).exists()):
         if request.method == 'GET':
-            api_key = "&api_key=pEqx0KfvYk6o3MbDGmFMxgMvb4rFhndc2eXyZoqx"
+            api_key = "?api_key=pEqx0KfvYk6o3MbDGmFMxgMvb4rFhndc2eXyZoqx"
             req = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + earth_date + api_key
             response = requests.get(req)
             todo = json.loads(response.text)
