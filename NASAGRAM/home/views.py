@@ -23,19 +23,41 @@ def home(request):
             jsonList = [json.loads(req.content.decode('utf-8'))]
 
             for background in jsonList:
-                IMG_SRC = background['url']
+                try:
+                    IMG_SRC = background['url']
+                except :
+                    IMG_SRC = 'https://apod.nasa.gov/apod/image/1905/20190202tezel.jpg'
 
-                HDURL = background['hdurl']
+                try : 
+                    HDURL = background['hdurl']
+                except :
+                    HDURL = 'https://apod.nasa.gov/apod/image/1905/20190202tezel.jpg'
 
-                TITLE = background['title']
+                try :    
+                    TITLE = background['title']
+                except : 
+                    TITLE = ''
 
-                DATE = background['date']
+                try :
+                    DATE = background['date']
+                except : 
+                    DATE = datetime.date.today()
 
-            nasa_data = NasaWallpaper(IMG_SRC=IMG_SRC,
-                                      HDURL=HDURL,
-                                      TITLE=TITLE,
-                                      DATE=DATE)
-            nasa_data.save()
+            try : 
+                nasa_data = NasaWallpaper(IMG_SRC=IMG_SRC,
+                                          HDURL=HDURL,
+                                          TITLE=TITLE,
+                                          DATE=DATE)
+
+
+            except :
+                nasa_data = NasaWallpaper(IMG_SRC='https://apod.nasa.gov/apod/image/1905/20190202tezel.jpg',
+                                          HDURL='https://apod.nasa.gov/apod/image/1905/20190202tezel.jpg',
+                                          TITLE='',
+                                          DATE=datetime.date.today())
+
+            finally : 
+                nasa_data.save()
 
         else:
             data['wallpapers'] = NasaWallpaper.objects.latest()
