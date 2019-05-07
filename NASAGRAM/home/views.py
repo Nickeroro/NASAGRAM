@@ -19,7 +19,7 @@ def home(request):
     parsedData = []
     if not (NasaWallpaper.objects.filter(DATE=datetime.date.today()).exists()):
         if request.method == 'GET':
-            req = requests.get("https://api.nasa.gov/planetary/apod" + settings.API_NASA)
+            req = requests.get("https://api.nasa.gov/planetary/apod?" + settings.API_NASA)
             jsonList = [json.loads(req.content.decode('utf-8'))]
 
             for background in jsonList:
@@ -67,7 +67,7 @@ def home(request):
     return render(request, 'home.html', data)
 
 
-def picsviewer(request, earth_date, camera_name):
+def picsviewerwithcamera(request, earth_date, camera_name):
     data = dict()
     parsedData = []
 
@@ -78,7 +78,7 @@ def picsviewer(request, earth_date, camera_name):
     if not (NasaData.objects.filter(EARTH_DATE=earth_date).exists()):
         if request.method == 'GET':
 
-            req = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + earth_date + settings.API_NASA
+            req = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + earth_date + '&' + settings.API_NASA
             response = requests.get(req)
             todo = json.loads(response.text)
 
@@ -104,7 +104,7 @@ def picsviewer(request, earth_date, camera_name):
     return render(request, 'home.html', data)
 
 
-def allpics(request, earth_date):
+def picsviewerwithdate(request, earth_date):
     data = dict()
     parsedData = []
 
@@ -115,7 +115,7 @@ def allpics(request, earth_date):
     if not (NasaData.objects.filter(EARTH_DATE=earth_date).exists()):
         if request.method == 'GET':
             api_key = "&api_key=pEqx0KfvYk6o3MbDGmFMxgMvb4rFhndc2eXyZoqx"
-            req = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + earth_date + api_key
+            req = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + earth_date + '&' + api_key
             response = requests.get(req)
             todo = json.loads(response.text)
 
