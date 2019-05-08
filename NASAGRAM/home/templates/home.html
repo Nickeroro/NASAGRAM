@@ -107,17 +107,20 @@
                                             {% endfor %}
                                             </ol>
                                             <div class="carousel-inner">
-                                              <div class="carousel-item active">
-                                                <img src="{% static "home/picturesfilters/source.jpg" %}" class="d-block w-100" alt="...">
-                                                <div class="carousel-caption d-none d-md-block">
-                                                </div>
-                                              </div>
                                               {% for pics in panelfilters %}
-                                              <div class="carousel-item">
-                                                <img src="{% static "home/picturesfilters/" %}{{ pics }}" class="d-block w-100" alt="...">
-                                                <div class="carousel-caption d-none d-md-block">
-                                                </div>
-                                              </div>
+                                                  {% if forloop.first %}
+                                                      <div class="carousel-item active">
+                                                        <img src="{% static "home/picturesfilters/" %}{{ pics }}" class="d-block w-100" alt="...">
+                                                        <div class="carousel-caption d-none d-md-block">
+                                                        </div>
+                                                      </div>
+                                                  {% else %}
+                                                      <div class="carousel-item">
+                                                        <img src="{% static "home/picturesfilters/" %}{{ pics }}" class="d-block w-100" alt="...">
+                                                        <div class="carousel-caption d-none d-md-block">
+                                                        </div>
+                                                      </div>
+                                                  {% endif %}
                                               {% endfor %}
                                             <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
