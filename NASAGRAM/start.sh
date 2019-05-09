@@ -1,15 +1,24 @@
 #!/bin/bash
 
 while getopts "mrh" option; do
-	echo " _____________________________________"
-	echo "<          NASAGRAM Project          >"
-	echo "<       CALVEZ Tony - TB Nicolas     >"
-	echo " _____________________________________"
-	echo "        \   ^__^"
-	echo "         \  (oo)\_______"
-	echo "            (__)\       )\/\ "
-	echo "                ||----w |"
-	echo "                ||     ||"
+	echo " _________________________"
+	echo "<    NASAGRAM Project    >"
+	echo "<CALVEZ Tony - TB Nicolas>"
+	echo " _________________________"
+	echo "        +   /\            "
+	echo "    +     ..  ..   *      "
+	echo "  *      /======\      +  "
+	echo "        |:.  _   |        "
+	echo "        |:. (_)  |        "
+	echo "        |:.  _   |        "
+	echo "     +  |:.  N   |   *    "
+	echo "        |:.      |        "
+	echo "      .. \:.    / ..      "
+	echo "     / .-..:._...-. \     "
+	echo "     |/    /||\    \|     "
+	echo "   _..--|||....|||--.._   "
+
+	echo " READY FOR THE TAKE OFF ? "
 	case $option in
 		m)
 		python manage.py makemigrations home
