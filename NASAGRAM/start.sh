@@ -21,12 +21,12 @@ while getopts "mrh" option; do
 	echo " READY FOR THE TAKE OFF ? "
 	case $option in
 		m)
-		python manage.py makemigrations home
-   		python manage.py migrate
-   		python manage.py runserver
+		python3 manage.py makemigrations home
+   		python3 manage.py migrate
+   		python3 manage.py runserver
 		;;
 		r)
-		python manage.py runserver
+		python3 manage.py runserver
 		;;
     		h)
 		echo "Command help - start nasagram "
