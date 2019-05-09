@@ -37,7 +37,7 @@ while getopts "mrh" option; do
 				* ) echo "Please answer yes or no.";;
 			esac
 		done;;
-    	h)h)
+    		h)
 		echo "Command help - start nasagram "
 		echo "========================="
 		echo "-m command: make migrations then run the server"
