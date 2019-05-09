@@ -1,46 +1,57 @@
 #!/bin/bash
 while getopts "mrh" option; do
-	echo -e " _________________________"
-	echo -e "<    NASAGRAM Project    >"
-	echo -e "<CALVEZ Tony - TB Nicolas>"
-	echo -e " _________________________"
-	echo -e "        +   /\            "
-	echo -e "    +     ..  ..   *      "
-	echo -e "  *      /======\      +  "
-	echo -e "        |:.  _   |        "
-	echo -e "        |:. (_)  |        "
-	echo -e "        |:.  _   |        "
-	echo -e "     +  |:.  N   |   *    "
-	echo -e "        |:.      |        "
-	echo -e "      .. \:.    / ..      "
-	echo -e "     / .-..:._...-. \     "
-	echo -e "     |/    /||\    \|     "
-	echo -e "   _..--|||....|||--.._   "
+	echo -e "\033[33;5m _________________________\033[0m"
+	echo -e "\033[33;5m<    NASAGRAM Project    >\033[0m"
+	echo -e "\033[33;5m<CALVEZ Tony - TB Nicolas>\033[0m"
+	echo -e "\033[33;5m _________________________\033[0m"
+	echo -e "\033[33;5m        +   /\            \033[0m"
+	echo -e "\033[33;5m    +     ..  ..   *      \033[0m"
+	echo -e "\033[33;5m  *      /======\      +  \033[0m"
+	echo -e "\033[33;5m        |:.  _   |        \033[0m"
+	echo -e "\033[33;5m        |:. (_)  |        \033[0m"
+	echo -e "\033[33;5m        |:.  _   |        \033[0m"
+	echo -e "\033[33;5m     +  |:.  N   |   *    \033[0m"
+	echo -e "\033[33;5m        |:.      |        \033[0m"
+	echo -e "\033[33;5m      .. \:.    / ..      \033[0m"
+	echo -e "\033[33;5m     / .-..:._...-. \     \033[0m"
+	echo -e "\033[33;5m     |/    /||\    \|     \033[0m"
+	echo -e "\033[33;5m   _..--|||....|||--.._   \033[0m"
+	echo -e "\033[33;5m                          \033[0m"
 
 	case $option in
 		m)
 		while true; do
-			read -p "READY FOR THE TAKE OFF ?" yn
+			read -p "READY FOR THE TAKE OFF (and migrate)? [Y/n]" yn
 			case $yn in
-				[Yy]* ) python3 manage.py makemigrations home; python3 manage.py migrate; python3 manage.py runserver; break;;
+				[Yy]* ) python3 manage.py makemigrations home; python3 manage.py migrate; python3 manage.py runserver;;
 				[Nn]* ) exit;;
 				* ) echo "Please answer yes or no.";;
 			esac
-		done
-		;;
+		done;;
 		r)
-		python3 manage.py runserver
-		;;
+		while true; do
+			read -p "READY FOR THE TAKE OFF (and migrate)? [Y/n]" yn
+			case $yn in
+				[Yy]* ) python3 manage.py runserver;;
+				[Nn]* ) exit;;
+				* ) echo "Please answer yes or no.";;
+			esac
+		done;;
     	h)
-		echo "Command help - start nasagram "
-		echo "========================="
-		echo "-m command: make migrations then run the server"
-		echo "-r command: run the server (typycal usage)" 
-  		echo "-h command: prompt help"
-		;;
+		while true; do
+			read -p "READY FOR THE TAKE OFF (and migrate)? [Y/n]" yn
+			case $yn in
+				[Yy]* ) echo "Command help - start nasagram ";
+						echo "=========================";
+						echo "-m command: make migrations then run the server";
+						echo "-r command: run the server (typical usage)" ;
+						echo "-h command: prompt help";break;;
+				[Nn]* ) exit;;
+				* ) echo "Please answer yes or no.";;
+			esac
+		done;;
 		?)
 		echo "illegal option :(..."
-		exit 1
-		;;
+		exit 1;;
 	esac
 done
