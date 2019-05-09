@@ -30,26 +30,19 @@ while getopts "mrh" option; do
 		done;;
 		r)
 		while true; do
-			read -p "READY FOR THE TAKE OFF (and migrate)? [Y/n]" yn
+			read -p "READY FOR THE TAKE OFF? [Y/n]" yn
 			case $yn in
 				[Yy]* ) python3 manage.py runserver;break;;
 				[Nn]* ) exit;;
 				* ) echo "Please answer yes or no.";;
 			esac
 		done;;
-    	h)
-		while true; do
-			read -p "READY FOR THE TAKE OFF (and migrate)? [Y/n]" yn
-			case $yn in
-				[Yy]* ) echo "Command help - start nasagram ";
-						echo "=========================";
-						echo "-m command: make migrations then run the server";
-						echo "-r command: run the server (typical usage)" ;
-						echo "-h command: prompt help";break;;
-				[Nn]* ) exit;;
-				* ) echo "Please answer yes or no.";;
-			esac
-		done;;
+    	h)h)
+		echo "Command help - start nasagram "
+		echo "========================="
+		echo "-m command: make migrations then run the server"
+		echo "-r command: run the server (typycal usage)" 
+  		echo "-h command: prompt help";;
 		?)
 		echo "illegal option :(..."
 		exit 1;;
