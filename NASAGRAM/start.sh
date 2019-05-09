@@ -1,5 +1,4 @@
 #!/bin/bash
-
 while getopts "mrh" option; do
 	echo " _________________________"
 	echo "<    NASAGRAM Project    >"
@@ -28,7 +27,7 @@ while getopts "mrh" option; do
 		r)
 		python3 manage.py runserver
 		;;
-    		h)
+    	h)
 		echo "Command help - start nasagram "
 		echo "========================="
 		echo "-m command: make migrations then run the server"
