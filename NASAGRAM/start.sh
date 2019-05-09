@@ -1,28 +1,32 @@
 #!/bin/bash
 while getopts "mrh" option; do
-	echo " _________________________"
-	echo "<    NASAGRAM Project    >"
-	echo "<CALVEZ Tony - TB Nicolas>"
-	echo " _________________________"
-	echo "        +   /\            "
-	echo "    +     ..  ..   *      "
-	echo "  *      /======\      +  "
-	echo "        |:.  _   |        "
-	echo "        |:. (_)  |        "
-	echo "        |:.  _   |        "
-	echo "     +  |:.  N   |   *    "
-	echo "        |:.      |        "
-	echo "      .. \:.    / ..      "
-	echo "     / .-..:._...-. \     "
-	echo "     |/    /||\    \|     "
-	echo "   _..--|||....|||--.._   "
+	echo -e " _________________________"
+	echo -e "<    NASAGRAM Project    >"
+	echo -e "<CALVEZ Tony - TB Nicolas>"
+	echo -e " _________________________"
+	echo -e "        +   /\            "
+	echo -e "    +     ..  ..   *      "
+	echo -e "  *      /======\      +  "
+	echo -e "        |:.  _   |        "
+	echo -e "        |:. (_)  |        "
+	echo -e "        |:.  _   |        "
+	echo -e "     +  |:.  N   |   *    "
+	echo -e "        |:.      |        "
+	echo -e "      .. \:.    / ..      "
+	echo -e "     / .-..:._...-. \     "
+	echo -e "     |/    /||\    \|     "
+	echo -e "   _..--|||....|||--.._   "
 
-	echo " READY FOR THE TAKE OFF ? "
 	case $option in
 		m)
-		python3 manage.py makemigrations home
-   		python3 manage.py migrate
-   		python3 manage.py runserver
+		while true; do
+			read -p "READY FOR THE TAKE OFF ?" yn
+			case $yn in
+				[Yy]* ) python3 manage.py makemigrations home; python3 manage.py migrate; python3 manage.py runserver; break;;
+				[Nn]* ) exit;;
+				* ) echo "Please answer yes or no.";;
+			esac
+		done
 		;;
 		r)
 		python3 manage.py runserver
