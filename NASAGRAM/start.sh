@@ -23,7 +23,7 @@ while getopts "mrh" option; do
 		while true; do
 			read -p "READY FOR THE TAKE OFF (and migrate)? [Y/n]" yn
 			case $yn in
-				[Yy]* ) python3 manage.py makemigrations home; python3 manage.py migrate; python3 manage.py runserver;;
+				[Yy]* ) python3 manage.py makemigrations home; python3 manage.py migrate; python3 manage.py runserver;break;;
 				[Nn]* ) exit;;
 				* ) echo "Please answer yes or no.";;
 			esac
@@ -32,7 +32,7 @@ while getopts "mrh" option; do
 		while true; do
 			read -p "READY FOR THE TAKE OFF (and migrate)? [Y/n]" yn
 			case $yn in
-				[Yy]* ) python3 manage.py runserver;;
+				[Yy]* ) python3 manage.py runserver;break;;
 				[Nn]* ) exit;;
 				* ) echo "Please answer yes or no.";;
 			esac
