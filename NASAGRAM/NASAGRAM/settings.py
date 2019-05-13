@@ -24,7 +24,7 @@ SECRET_KEY = 'enno-3u!6+w=g)^ar*#$kvkg(lw1i8(3m^$!ifjjivwf2w3zqc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".nasagram.space"]
 
 #API KEY
 API_NASA = "api_key=pEqx0KfvYk6o3MbDGmFMxgMvb4rFhndc2eXyZoqx"
