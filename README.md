@@ -22,7 +22,7 @@ You should see the Django powered website on 127.0.0.1:8000
 
 ## Dependencies
 
- certifi==2019.3.9
+ certification == 2019/03/09
  
   * Django==2.2
   * color-transfer==0.1
