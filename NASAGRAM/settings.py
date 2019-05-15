@@ -130,7 +130,8 @@ CSRF_COOKIE_SECURE = True
 
 STATIC_URL = '/static/'
 STATIC_HOME = (os.path.join(os.path.dirname(__file__), 'static/'),)[0][:-16]+"static/home/"
+STATIC_ROOT = (os.path.join(os.path.dirname(__file__), 'static/'),)[0][:-16]
 
 STATICFILES_DIRS = [
-    os.path.join(os.path.dirname(__file__), 'static/'),
+    os.path.join(STATIC_ROOT, 'static'),
 ]
