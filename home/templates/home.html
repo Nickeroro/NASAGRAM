@@ -142,9 +142,9 @@
                                     <div class="card-body">
                                         <form class="card-social">
                                             <p>Share your Mars experience with all your friends: </p>
-                                            <button type="button" class="btn btn-facebook text-white"><i class="fab fa-facebook-f" onclick="shareFacebook()"></i>  Facebook</button>
+                                            <button type="button" class="btn btn-facebook text-white" onclick="shareFacebook()"><i class="fab fa-facebook-f"></i>  Facebook</button>
                                             <button type="button" class="btn btn-messenger text-white"><i class="fab fa-facebook-messenger"></i>  Messenger</button>
-                                            <button type="button" class="btn btn-twitter text-white" onclick="shareFacebook()"><i class="fab fa-twitter"></i>  Twitter</button>
+                                            <button type="button" class="btn btn-twitter text-white" onclick="shareTwitter()"><i class="fab fa-twitter"></i>  Twitter</button>
                                             <a class="btn btn-dark text-white" role="button" onclick="downloadImage()"><i class="far fa-save"></i>
                                                 Download
                                             </a>
@@ -252,8 +252,18 @@
     function shareFacebook(){
         URLImage = document.getElementsByClassName("carousel-item active")[0].getElementsByClassName("d-block w-100")[0].src;
         URL = location.href;
-        URLFacebook = 'https://www.facebook.com/sharer/sharer.php?s=100&p[url]='+URL+'p[images][0]='+ URLImage +'&p[title]=Nasagram&p[summary]=Powered%20by%20NASA%20API%20with%20Tony%20CALVEZ%20&%20Nicolas%20TB'
+        URLFacebook = 'https://www.facebook.com/sharer/sharer.php?s=100&p[url]='+URL+'p[images]='+ URLImage +'&p[title]=Nasagram&p[summary]=Powered%20by%20NASA%20API%20with%20Tony%20CALVEZ%20&%20Nicolas%20TB'
         window.open(URLFacebook,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false
     }
+
+    function shareTwitter() {
+
+    }
+
+    function shareMessenger() {
+        URL = location.href;
+        app_id= '448991855670764';
+        window.open('fb-messenger://share?link=' + encodeURIComponent(URL) + '&app_id=' + encodeURIComponent(app_id));
+    }
 	</script>
-</body>
+</body> 
