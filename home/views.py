@@ -100,9 +100,12 @@ def picsviewerwithcamera(request, earth_date, camera_name):
             return render(request, 'home.html', data)
 
     data['pics'] = NasaData.objects.filter(EARTH_DATE=earth_date).filter(CAMERA_NAME=camera_name)
-    print(data['pics'])
     return render(request, 'home.html', data)
 
+def picsvieweronlycamera(request, camera_name):
+    data = dict()
+    data['pics'] = NasaData.objects.filter(CAMERA_NAME=camera_name)
+    return render(request, 'home.html', data)
 
 def picsviewerwithdate(request, earth_date):
     data = dict()
