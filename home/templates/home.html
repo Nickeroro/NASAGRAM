@@ -48,16 +48,22 @@
 		<main>
             {% if request.get_full_path == "/" %}
                 {% block home %}
-                <div class="jumbotron jumbotron-fluid text-white introduction font-thin">
-                    <h1 class="display-4 text-uppercase">Curious like Curiosity</h1>
-                    <hr class="my-4">
-                    <p>Curiosity is the greatest traveler of all time, and the best Instagram Influencers. Let's start the Mars exploration in the robot's eyes.</p>
-                    <p class="lead">
-                    <hr class="my-4">
-                    <button type="button" class="btn btn-lg gradient text-white" data-toggle="modal" data-target="#search">Discover now, the experience! <i class="fas fa-space-shuttle fa-lg"></i></button>
-                    </p>
-                    <hr class="my-4">
-                </div>
+                    <div class="container">
+                    	<div class="row">
+                            <div class="col-sm-12">
+                                <div class="jumbotron jumbotron-fluid text-white introduction font-thin">
+                                    <h1 class="display-4 text-uppercase">Curious like Curiosity</h1>
+                                    <hr class="my-4">
+                                    <p>Curiosity is the greatest traveler of all time, and the best Instagram Influencers. Let's start the Mars exploration in the robot's eyes.</p>
+                                    <p class="lead">
+                                    <hr class="my-4">
+                                    <button type="button" class="btn btn-lg gradient text-white" data-toggle="modal" data-target="#search">Discover now, the experience! <i class="fas fa-space-shuttle fa-lg"></i></button>
+                                    </p>
+                                    <hr class="my-4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 {% endblock %}
             {% endif %}
 
@@ -136,11 +142,10 @@
                                     <div class="card-body">
                                         <form class="card-social">
                                             <p>Share your Mars experience with all your friends: </p>
-                                            <button type="button" class="btn btn-facebook text-white"><i class="fab fa-facebook-f"></i>  Facebook</button>
+                                            <button type="button" class="btn btn-facebook text-white"><i class="fab fa-facebook-f" onclick="shareFacebook()"></i>  Facebook</button>
                                             <button type="button" class="btn btn-messenger text-white"><i class="fab fa-facebook-messenger"></i>  Messenger</button>
-                                            <button type="button" class="btn btn-twitter text-white"><i class="fab fa-twitter"></i>  Twitter</button>
-
-                                            <a class="btn btn-dark text-white" role="button" href="https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/pia22213-nasa.jpg" download="Nasagram.jpg"><i class="far fa-save"></i>
+                                            <button type="button" class="btn btn-twitter text-white" onclick="shareFacebook()"><i class="fab fa-twitter"></i>  Twitter</button>
+                                            <a class="btn btn-dark text-white" role="button" onclick="downloadImage()"><i class="far fa-save"></i>
                                                 Download
                                             </a>
                                         </form>
@@ -237,6 +242,18 @@
     var date = document.getElementById('date-input').value;
 	var link = location.href.split('/')[0] + '/' +date;
 	window.location.replace(link);
+    }
+
+    function downloadImage(){
+	    URL=document.getElementsByClassName("carousel-item active")[0].getElementsByClassName("d-block w-100")[0].src;
+        window.win = open (URL);
+    }
+
+    function shareFacebook(){
+        URLImage = document.getElementsByClassName("carousel-item active")[0].getElementsByClassName("d-block w-100")[0].src;
+        URL = location.href;
+        URLFacebook = 'https://www.facebook.com/sharer/sharer.php?s=100&p[url]='+URL+'p[images][0]='+ URLImage +'&p[title]=Nasagram&p[summary]=Powered%20by%20NASA%20API%20with%20Tony%20CALVEZ%20&%20Nicolas%20TB'
+        window.open(URLFacebook,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false
     }
 	</script>
 </body>
