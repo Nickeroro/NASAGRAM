@@ -20,9 +20,10 @@ from django.contrib import admin
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),
-    path('home', views.home),
+    path('-undefined', views.home),
+    re_path(r'(?P<earth_date>[0-9]{4}.[0-9]{2}.[0-9]{2})-(?P<camera_name>[A-Z]{3,9})', views.picsviewerwithdateandcamera),
+    re_path(r'(?P<earth_date>[0-9]{4}.[0-9]{2}.[0-9]{2})', views.picsvieweronlydate),
     re_path(r'-(?P<camera_name>[A-Z]{3,7})', views.picsvieweronlycamera),
-    re_path(r'(?P<earth_date>[0-9]{4}.[0-9]{2}.[0-9]{2})-(?P<camera_name>[A-Z]{3,7})', views.picsviewerwithcamera),
-    re_path(r'(?P<earth_date>[0-9]{4}.[0-9]{2}.[0-9]{2})', views.picsviewerwithdate),
-    re_path(r'p/(?P<id>[0-9]{6})', views.panelfilter)
+    re_path(r'p/(?P<id>[0-9]{3,6})', views.panelfilter),
+    re_path(r'.*', views.home)
 ]

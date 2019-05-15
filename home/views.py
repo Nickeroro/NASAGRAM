@@ -8,6 +8,7 @@ from django.conf import settings
 from .models import NasaData
 from .models import NasaWallpaper
 import sys
+
 sys.path.append(settings.STATIC_HOME + 'picturesfilters/')
 from color_transfer import color_transfer
 from other_filters import *
@@ -25,38 +26,38 @@ def home(request):
             for background in jsonList:
                 try:
                     IMG_SRC = background['url']
-                except :
+                except:
                     IMG_SRC = 'https://apod.nasa.gov/apod/image/1905/20190202tezel.jpg'
 
-                try : 
+                try:
                     HDURL = background['hdurl']
-                except :
+                except:
                     HDURL = 'https://apod.nasa.gov/apod/image/1905/20190202tezel.jpg'
 
-                try :    
+                try:
                     TITLE = background['title']
-                except : 
+                except:
                     TITLE = ''
 
-                try :
+                try:
                     DATE = background['date']
-                except : 
+                except:
                     DATE = datetime.date.today()
 
-            try : 
+            try:
                 nasa_data = NasaWallpaper(IMG_SRC=IMG_SRC,
                                           HDURL=HDURL,
                                           TITLE=TITLE,
                                           DATE=DATE)
 
 
-            except :
+            except:
                 nasa_data = NasaWallpaper(IMG_SRC='https://apod.nasa.gov/apod/image/1905/20190202tezel.jpg',
                                           HDURL='https://apod.nasa.gov/apod/image/1905/20190202tezel.jpg',
                                           TITLE='',
                                           DATE=datetime.date.today())
 
-            finally : 
+            finally:
                 nasa_data.save()
 
         else:
@@ -67,13 +68,16 @@ def home(request):
     return render(request, 'home.html', data)
 
 
-def picsviewerwithcamera(request, earth_date, camera_name):
+def picsviewerwithdateandcamera(request, earth_date, camera_name):
     data = dict()
     parsedData = []
 
     date = datetime.datetime.strptime(earth_date, '%Y-%m-%d')
-    if date >= datetime.datetime.now():
+    datemin = datetime.datetime.strptime('2014-06-01', '%Y-%m-%d')
+    if date > datetime.datetime.today() - datetime.timedelta(days=1):
         earth_date = str(datetime.datetime.today() - datetime.timedelta(days=1))[:10]
+    elif date <= datemin:
+        earth_date = str(datemin)[:10]
 
     if not (NasaData.objects.filter(EARTH_DATE=earth_date).exists()):
         if request.method == 'GET':
@@ -95,25 +99,31 @@ def picsviewerwithcamera(request, earth_date, camera_name):
                                          IMG_SRC=IMG_SRC)
                     nasa_data.save()
 
-        else:
-            data['pics'] = NasaData.objects.latest()
-            return render(request, 'home.html', data)
+    if not (NasaData.objects.filter(EARTH_DATE=earth_date).filter(CAMERA_NAME=camera_name).exists()):
+        data['pics'] = NasaData.objects.filter(EARTH_DATE=earth_date)
+        return render(request, 'home.html', data)
 
-    data['pics'] = NasaData.objects.filter(EARTH_DATE=earth_date).filter(CAMERA_NAME=camera_name)
-    return render(request, 'home.html', data)
+    else:
+        data['pics'] = NasaData.objects.filter(EARTH_DATE=earth_date).filter(CAMERA_NAME=camera_name)
+        return render(request, 'home.html', data)
+
 
 def picsvieweronlycamera(request, camera_name):
     data = dict()
     data['pics'] = NasaData.objects.filter(CAMERA_NAME=camera_name)
     return render(request, 'home.html', data)
 
-def picsviewerwithdate(request, earth_date):
+
+def picsvieweronlydate(request, earth_date):
     data = dict()
     parsedData = []
 
     date = datetime.datetime.strptime(earth_date, '%Y-%m-%d')
-    if date >= datetime.datetime.now():
+    datemin = datetime.datetime.strptime('2014-06-01', '%Y-%m-%d')
+    if date > datetime.datetime.today() - datetime.timedelta(days=1):
         earth_date = str(datetime.datetime.today() - datetime.timedelta(days=1))[:10]
+    elif date <= datemin:
+        earth_date = str(datemin)[:10]
 
     if not (NasaData.objects.filter(EARTH_DATE=earth_date).exists()):
         if request.method == 'GET':
@@ -135,16 +145,12 @@ def picsviewerwithdate(request, earth_date):
                                          IMG_SRC=IMG_SRC)
                     nasa_data.save()
 
-        else:
-            data['pics'] = NasaData.objects.latest()
-            return render(request, 'home.html', data)
-
     data['pics'] = NasaData.objects.filter(EARTH_DATE=earth_date)
-    print(data['pics'])
     return render(request, 'home.html', data)
 
+
 def panelfilter(request, id):
-    data=[]
+    data = []
     directory = settings.STATIC_HOME + 'picturesfilters/' + id + '/'
 
     if not os.path.exists(directory):
@@ -175,5 +181,5 @@ def panelfilter(request, id):
     data.append(id + '/output_ct_polaroid.jpg')
     data.append(id + '/output_edge_detection.jpg')
     data.append(id + '/output_fft.jpg')
-    
-    return render(request, 'home.html', {'panelfilters' : data})
+
+    return render(request, 'home.html', {'panelfilters': data})
