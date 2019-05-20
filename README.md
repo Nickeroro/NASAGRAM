@@ -23,7 +23,7 @@ The template is free and open-source. I have
 
 ### Django:
 
-The Django Framework is an App Engine. 
+The Django Framework is an App Engine released with Python. I think, this is the end of the PHP Language for the web app
 
 
 
