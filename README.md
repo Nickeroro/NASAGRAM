@@ -13,7 +13,11 @@ Bootstrap Template : https://tonycalvez.github.io/NASAGRAM/TEMPLATE-BOOTSTRAP/in
 
 ### Bootstrap:
 
-The Bootstrap Framework
+The Bootstrap Framework is an open source toolkit for developing with HTML, CSS, and JS. 
+
+This app have been developed with the Twitter Engineers.
+
+The template is free and open-source. I have 
 
 
 
