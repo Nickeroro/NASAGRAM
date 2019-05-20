@@ -5,14 +5,28 @@ Website : http://nasagram.space
 
 Bootstrap Template : https://tonycalvez.github.io/NASAGRAM/TEMPLATE-BOOTSTRAP/index.html 
 
+
+
+
+
+## APP ENGINE
+
+### Bootstrap:
+
+The Bootstrap Framework
+
+
+
+### Django:
+
+The Django Framework is an App Engine. 
+
+
+
+
+
 ## USAGE
-### Linux / MacOs
-Launch the start.sh file with this command:
-~~~bash
-chmod +x start.sh
-./start.sh -h
-~~~
-### Windows
+### Windows / Linux / MacOS
 Execute those commands in the prompt:
 ~~~bash
 python3 manage.py makemigrations home
@@ -23,6 +37,17 @@ python3 manage.py runserver
 You should see the Django powered website on 127.0.0.1:8000
 
 
+
+### Linux / MacOS
+
+Launch the start.sh file with this command:
+
+```bash
+chmod +x start.sh
+./start.sh -h
+```
+
+### 
 
 ## IMAGES
 
@@ -66,7 +91,7 @@ The price of the domain:
 
 The price of the hosting place: 
 
-- VPS - Python : 7 euros for 3 months
+- VPS - Simple Hosting with Python : 7 euros for 3 months
 
 
 
