@@ -52,9 +52,22 @@ You can sync the dependencies with the `requirements.txt` :
 
 ## DEPLOYMENT
 
-We have hosted the website with 
+We have hosted the website with [Gandi](https://www.gandi.net/fr) : 
 
-[Gandi]: https://www.gandi.net/fr	"Gandi:"
+- http://nasagram.space
+
+  
+
+The price of the domain: 
+
+- nasagram.space : 4 euros
+
+  
+
+The price of the hosting place: 
+
+- VPS - Python : 7 euros for 3 months
 
 
 
+The git is ready to be uploaded with the [documentation](https://docs.gandi.net/fr/simple_hosting/langages/python.html).
