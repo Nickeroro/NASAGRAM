@@ -32,20 +32,11 @@
     <meta name="twitter:creator" content="Tony CALVEZ & Nicolas TB">
     <meta name="twitter:image:src" content="https://stepic.org/static/classic/city/images/sharepic.png">
 
-
-    <!-- Facebook -->
-    <meta property="og:url"           content="http://nasagram.space" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Nasagram" />
-    <meta property="og:description"   content="Curiosity is the greatest traveler of all time, and the best Instagram Influencers. Let's start the Mars exploration in the robot's eyes." />
-    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
-
-
     <style type="text/css">
 
     <!--
 	{% for NasaWallpaper in wallpapers %}
-        body  { background-image: url("{{ NasaWallpaper.HDURL }}");
+        body  { background-image: url("{{ NasaWallpaper.IMG_SRC }}");
                 transparency:0.50;
         }
 	{% endfor %}
@@ -163,12 +154,24 @@
                                     <div class="card-body">
                                         <form class="card-social">
                                             <p>Share your Mars experience with all your friends: </p>
-                                            <button type="button" class="btn btn-facebook text-white" onclick="shareFacebook()"><i class="fab fa-facebook-f"></i>  Facebook</button>
-                                            <button type="button" class="btn btn-messenger text-white" onclick="shareMessenger()"><i class="fab fa-facebook-messenger"></i>  Messenger</button>
-                                            <button type="button" class="btn btn-twitter text-white" onclick="shareTwitter()"><i class="fab fa-twitter"></i>  Twitter</button>
-                                            <a class="btn btn-dark text-white" role="button" onclick="downloadImage()"><i class="far fa-save"></i>
-                                                Download
-                                            </a>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <button type="button" class="btn btn-facebook social text-white" onclick="shareFacebook()"><i class="fab fa-facebook-f"></i>  Facebook</button>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <button type="button" class="btn btn-messenger social text-white" onclick="shareMessenger()"><i class="fab fa-facebook-messenger"></i>  Messenger</button>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <button type="button" class="btn btn-twitter social text-white" onclick="shareTwitter()"><i class="fab fa-twitter"></i>  Twitter</button>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <a class="btn btn-dark social text-white" role="button" onclick="downloadImage()"><i class="far fa-save"></i>
+                                                        Download
+                                                    </a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -248,8 +251,8 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.3&appId=448991855670764&autoLogAppEvents=1"></script>
+{#    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.3&appId=448991855670764&autoLogAppEvents=1"></script>#}
+
     <script type='text/javascript'>
 	$(document).ready(function(){
 		$('g').click(function(){
@@ -272,25 +275,20 @@
         window.win = open (URL);
     }
 
-    function shareFacebook(){
-        URLFacebook = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fnasagram.space%2F&amp;src=sdkpreparse';
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-        fjs.parentNode.insertBefore(js, fjs);
-        }
-
     function shareTwitter() {
-        URL=location.href.split('/')
-        URLTwitter = 'https://twitter.com/intent/tweet?url='+URL;
-        window.open(URLTwitter,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false
+        var texttweet = " powered by the @NASA API. Release at @ENSTABretagne by Tony CALVEZ and Nicolas TB. ";
+        window.open('https://twitter.com/share?url='+'http:%2F%2Fnasagram.space'+'&text='+document.title + texttweet, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=600,height=250');
+        return false;
+    }
+
+    function shareFacebook() {
+        window.open("https://www.facebook.com/sharer/sharer.php?u="+ 'http:%2F%2Fnasagram.space' +"&t="+document.title, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=600,height=250');
+        return false;
     }
 
     function shareMessenger() {
-        URL = location.href;
         app_id= '448991855670764';
-        window.open('fb-messenger://share?link=' + encodeURIComponent(URL) + '&app_id=' + encodeURIComponent(app_id));
+        window.open('fb-messenger://share?link=' + 'http:%2F%2Fnasagram.space' + '&app_id=' + encodeURIComponent(app_id));
     }
 	</script>
 </body> 
