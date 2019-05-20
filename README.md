@@ -36,7 +36,7 @@ You should see the Django powered website on 127.0.0.1:8000
 
 ## DEPENDENCIES
 
-You can sync the dependencies with the `requierement.txt`.
+You can sync the dependencies with the `requirements.txt`.
 
   * Certifi==2019.3.9
   * Django==2.2
