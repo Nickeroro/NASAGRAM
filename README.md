@@ -65,7 +65,7 @@ Make migrations and run the server:
 Help
 
 ```bash
-./start.sh -m
+./start.sh -h
 ```
 
 ### 
