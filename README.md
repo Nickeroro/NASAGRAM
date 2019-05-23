@@ -44,11 +44,28 @@ You should see the Django powered website on 127.0.0.1:8000
 
 ### Linux / MacOS
 
-Launch the start.sh file with this command:
+Make the script executable:
 
 ```bash
 chmod +x start.sh
-./start.sh -h
+```
+
+Run the server:
+
+```bash
+./start.sh -r
+```
+
+Make migrations and run the server:
+
+```bash
+./start.sh -m
+```
+
+Help
+
+```bash
+./start.sh -m
 ```
 
 ### 
