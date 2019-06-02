@@ -121,7 +121,7 @@
 								</div>
 							  	<div class="card-body">
 							    	<form class="card-social">
-                                            <p>Share your Mars experience with all your friends: </p>
+                                            <p>Share your Mars experience: </p>
                                             <div class="container">
                                                 <div class="row">
                                                     <div class="col-sm-3">
@@ -151,7 +151,7 @@
 
 		<footer class="footer mt-auto py-3 text-white">
 		    <div class="container">
-		   		<p>Powered by <a href="https://api.nasa.gov/index.html">NASA's API</a> with <a href="https://github.com/TonyCalvez/">Tony CALVEZ</a> & <a href="https://github.com/Nickeroro/">Nicolas TB</a>
+		   		<p>Powered by <a href="https://api.nasa.gov/index.html">NASA's API</a> by <a href="https://github.com/TonyCalvez/">Tony CALVEZ</a> & <a href="https://github.com/Nickeroro/">Nicolas TB</a>
 		   		</p>
 			</div>
 	  	</footer>
@@ -216,7 +216,10 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script type='text/javascript'>
+    	<script type='text/javascript'>
+	var URL=document.getElementsByClassName("carousel-item active")[0].getElementsByClassName("d-block w-100")[0].src;
+        $("meta[name='twitter:image:src']").attr('content', URL);
+        $("meta[property='og:image']").attr('content', URL);
 	$(document).ready(function(){
 		$('g').click(function(){
 			var date = document.getElementById('date-input').value;
@@ -225,27 +228,30 @@
 			window.location.replace(link);
 		});
 	});
-	    
+
+
 	function submitDate() {
-    var date = document.getElementById('date-input').value;
+    	var date = document.getElementById('date-input').value;
 	var link = location.href.split('/')[0] + '/' +date;
 	window.location.replace(link);
     }
 
-
-
     function downloadImage(){
-	    URL=document.getElementsByClassName("carousel-item active")[0].getElementsByClassName("d-block w-100")[0].src;
+	var URL=document.getElementsByClassName("carousel-item active")[0].getElementsByClassName("d-block w-100")[0].src;
         window.win = open (URL);
     }
 
     function shareTwitter() {
+         var URL=document.getElementsByClassName("carousel-item active")[0].getElementsByClassName("d-block w-100")[0].src;
+        $("meta[name='twitter:image:src']").attr('content', URL);
         var texttweet = " powered by the @NASA API. Release at @ENSTABretagne by Tony CALVEZ and Nicolas TB. ";
         window.open('https://twitter.com/share?url='+'http:%2F%2Fnasagram.space'+'&text='+document.title + texttweet, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=600,height=250');
         return false;
     }
 
     function shareFacebook() {
+        var URL=document.getElementsByClassName("carousel-item active")[0].getElementsByClassName("d-block w-100")[0].src;
+        $("meta[property='og:image']").attr('content', URL);
         window.open("https://www.facebook.com/sharer/sharer.php?u="+ 'http:%2F%2Fnasagram.space' +"&t="+document.title, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=600,height=250');
         return false;
     }
@@ -254,6 +260,5 @@
         app_id= '448991855670764';
         window.open('fb-messenger://share?link=' + 'http:%2F%2Fnasagram.space' + '&app_id=' + encodeURIComponent(app_id));
     }
-
 	</script> 
 </body>
