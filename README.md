@@ -12,8 +12,22 @@ Website : http://www.nasagram.space
 
 Bootstrap Template : https://tonycalvez.github.io/NASAGRAM/TEMPLATE-BOOTSTRAP/index.html 
 
+### Introduction : 
+
+My friend and I (Tony CALVEZ & Nicolas TALEC-BERNARD) are studying embed systems as french engineers at the ENSTA-Bretagne. 
+
+(Fun fact: our promotion sponsor is Jean-Loup Chrétien !)
+
+
+We have deployed a django python powered website using your API as a basis, the project is called "NASAGRAM",
+
+
+The main idea was to pick the photo of your choice from the Mars Rover Photos-API by clicking on a camera then be able to do some filtering on it (and share them with your friends).
+
+
 
 ## YouTube:
+
 [![Watch the video](/image-github/nasagram-img1.png)](https://youtu.be/ywyi1HVHGtE)
 
 <div style="page-break-after: always;"></div>
