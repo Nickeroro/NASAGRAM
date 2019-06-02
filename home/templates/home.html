@@ -30,8 +30,11 @@
     <meta name="twitter:title" content="Nasagram">
     <meta name="twitter:description" content="Curiosity is the greatest traveler of all time, and the best Instagram Influencers. Let's start the Mars exploration in the robot's eyes.">
     <meta name="twitter:creator" content="Tony CALVEZ & Nicolas TB">
-    <meta name="twitter:image:src" content="https://stepic.org/static/classic/city/images/sharepic.png">
+    <meta name="twitter:image:src" content="">
 
+    <!-- Facebook -->
+    <meta property="og:url" content="www.nasagram.space"/>
+    <meta property="og:image" content=""/>
     <style type="text/css">
 
     <!--
@@ -153,7 +156,7 @@
                                     </div>
                                     <div class="card-body">
                                         <form class="card-social">
-                                            <p>Share your Mars experience with all your friends: </p>
+                                            <p>Share your Mars Experience : </p>
                                             <div class="container">
                                                 <div class="row">
                                                     <div class="col-sm-3">
@@ -186,7 +189,7 @@
 		<footer class="footer mt-auto py-3 text-white">
 			<hr class="my-4">
 		    <div class="container">
-		   		<p>Powered by <a href="https://api.nasa.gov/index.html">NASA's API</a> with <a href="https://github.com/TonyCalvez/">Tony CALVEZ</a> & <a href="https://github.com/Nickeroro/">Nicolas TB</a>
+		   		<p>Powered by <a href="https://api.nasa.gov/index.html">NASA's API</a> by <a href="https://github.com/TonyCalvez/">Tony CALVEZ</a> & <a href="https://github.com/Nickeroro/">Nicolas TB</a>
 		   		</p>
 			</div>
 	  	</footer>
@@ -254,6 +257,7 @@
 {#    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.3&appId=448991855670764&autoLogAppEvents=1"></script>#}
 
     <script type='text/javascript'>
+
 	$(document).ready(function(){
 		$('g').click(function(){
 			var date = document.getElementById('date-input').value;
@@ -271,17 +275,21 @@
     }
 
     function downloadImage(){
-	    URL=document.getElementsByClassName("carousel-item active")[0].getElementsByClassName("d-block w-100")[0].src;
+	    var URL=document.getElementsByClassName("carousel-item active")[0].getElementsByClassName("d-block w-100")[0].src;
         window.win = open (URL);
     }
 
     function shareTwitter() {
+         var URL=document.getElementsByClassName("carousel-item active")[0].getElementsByClassName("d-block w-100")[0].src;
+        $("meta[name='twitter:image:src']").attr('content', URL);
         var texttweet = " powered by the @NASA API. Release at @ENSTABretagne by Tony CALVEZ and Nicolas TB. ";
         window.open('https://twitter.com/share?url='+'http:%2F%2Fnasagram.space'+'&text='+document.title + texttweet, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=600,height=250');
         return false;
     }
 
     function shareFacebook() {
+        var URL=document.getElementsByClassName("carousel-item active")[0].getElementsByClassName("d-block w-100")[0].src;
+        $("meta[property='og:image']").attr('content', URL);
         window.open("https://www.facebook.com/sharer/sharer.php?u="+ 'http:%2F%2Fnasagram.space' +"&t="+document.title, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=600,height=250');
         return false;
     }
