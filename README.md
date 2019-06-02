@@ -7,9 +7,7 @@ Bootstrap Template : https://tonycalvez.github.io/NASAGRAM/TEMPLATE-BOOTSTRAP/in
 
 
 ## YouTube:
-```none
 [![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
-```
 
 
 ## APP ENGINE
