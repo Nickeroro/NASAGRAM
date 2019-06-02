@@ -8,7 +8,7 @@ Bootstrap Template : https://tonycalvez.github.io/NASAGRAM/TEMPLATE-BOOTSTRAP/in
 
 ## YouTube:
 ```none
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
+[![Watch the video](https://img.youtube.com/vi/ywyi1HVHGtE/default.jpg)](https://youtu.be/ywyi1HVHGtE)
 ```
 
 
