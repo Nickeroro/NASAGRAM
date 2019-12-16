@@ -1,6 +1,6 @@
 <table>
     <tr>
-        <td>CALVEZ Tony </br>TALEC-BENARD Nicolas</td>
+        <td>CALVEZ Tony </br>TB Nicolas</td>
 		<td>FIPA20 </br>20/09/2018</td>
 </table>
 
@@ -14,7 +14,7 @@ Bootstrap Template : https://tonycalvez.github.io/NASAGRAM/TEMPLATE-BOOTSTRAP/in
 
 ### Introduction : 
 
-My friend and I (Tony CALVEZ & Nicolas TALEC-BERNARD) are studying embed systems as french engineers at the ENSTA-Bretagne. 
+My friend and I (Tony CALVEZ & Nicolas TB) are studying embed systems as french engineers at the ENSTA-Bretagne. 
 
 (Fun fact: our promotion sponsor is Jean-Loup Chrétien !)
 
