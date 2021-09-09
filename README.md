@@ -9,7 +9,7 @@
 API NASA + Instagram = ❤️
 
 Website : 	http://www.nasagram.space
-		http://nasagram.pythonanywhere.com/
+Website2 :	http://nasagram.pythonanywhere.com/
 
 Bootstrap Template : https://tonycalvez.github.io/NASAGRAM/TEMPLATE-BOOTSTRAP/index.html 
 
