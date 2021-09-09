@@ -8,13 +8,14 @@
 
 API NASA + Instagram = ❤️
 
-Website : http://www.nasagram.space
+Website : 	http://www.nasagram.space
+		http://nasagram.pythonanywhere.com/
 
 Bootstrap Template : https://tonycalvez.github.io/NASAGRAM/TEMPLATE-BOOTSTRAP/index.html 
 
 ### Introduction : 
 
-My friend and I (Tony CALVEZ & Nicolas TB) are studying embed systems as french engineers at the ENSTA-Bretagne. 
+My friend and I (Tony C & Nicolas TB) are studying embed systems as french engineers at the ENSTA-Bretagne. 
 
 (Fun fact: our promotion sponsor is Jean-Loup Chrétien !)
 
